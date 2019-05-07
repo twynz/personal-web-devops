@@ -1,0 +1,31 @@
+version: '2'
+services:
+#start all servers
+  consul:
+    container_name: consul
+    image: consul
+    ports:
+     - "8500:8500"
+     - "8600:8600"
+    command: consul agent -dev -client 0.0.0.0
+
+  mysql:
+    container_name: mysql
+    image: mysql:5.6
+    expose:
+      - "3306"
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=123
+    volumes:
+      - $HOME/DockerData/mysql:/var/lib/mysql
+      - ./init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_general_ci --max-connections=1000 --default-time-zone='+12:00'
+
+
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - "6379:6379"
