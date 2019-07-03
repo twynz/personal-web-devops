@@ -1,11 +1,10 @@
 FROM mcr.microsoft.com/java/maven:8u192-zulu-debian9
 #install git
-RUN apt-get update &&  apt install -y git
-#specify workdir
-RUN mkdir /src && cd /src
-#download source code
-RUN git clone https://github.com/twynz/personal-web-auth.git
-RUN cd personal-web-auth && mvn clean install
-EXPOSE 10001:10001
+RUN apt-get update &&  apt install -y git && mkdir /src
+#specify workdir and download source code
+ADD . /src
+RUN sh /src/get_project.sh
 WORKDIR /src/personal-web-auth
-ENTRYPOINT mvn spring-boot:run
+#RUN mvn clean install
+EXPOSE 10001:10001
+CMD /bin/bash
