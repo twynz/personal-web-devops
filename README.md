@@ -12,7 +12,11 @@ Used for spring cloud backend of my personal web.
 3.Clear them all:
    
    docker rm $(docker ps -aq)
-
+> Build docker images
+  Sometimes don't need cache to help build layers, need to force rebuild, use command like this:
+   
+     docker build --no-cache -t myauth:test .
+    
 > Start service:
 In order to run docker container with env file, should use command like this(also mapping conatiner port to host port):
 #map service port to host port, in dockerfile, also expose container port
