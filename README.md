@@ -1,9 +1,19 @@
 Used for spring cloud backend of my personal web.
 
-> Start dependencies:
-1.To start dependencies:
+Can start all services and dependencies using docker compose:
+    
+     docker-compose up -d
+    
+If want to force rebuild all images:
+   
+     docker-compose up --force-recreate  
+     
+Note for build service images:
 
-     docker-compose -f personal-web.yaml up -d
+> Start dependencies:
+1.To start dependencies, comment out serice config in yaml file:
+
+     docker-compose up -d
 
 2.To check all docker containers:
    
