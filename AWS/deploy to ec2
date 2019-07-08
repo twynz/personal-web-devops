@@ -1,0 +1,12 @@
+#connect to ec2 instance using pem
+
+    ssh -i ./key.pem ubuntu@ec2-13-210-142-188.ap-southeast-2.compute.amazonaws.com
+
+#in order to expose web service to customer, config security group by adding rule
+#to allow tcp visit
+
+    1.config port range and set type as TCP
+    2.check both inbound and outbound config of security group
+    3.if ec2 instance is bound to VPC, also need to check gateway&subnet config of this vpc
+    
+    
