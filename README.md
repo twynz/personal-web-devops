@@ -37,5 +37,10 @@ In order to run docker container with env file, should use command like this(als
 When using cloud architecture integrate with consul, starting consul using command(-client option allows external address to visit, so in docker container, when accessing docker using host ip, this will work).
   
      consul agent -server -bootstrap-expect 1 -ui -data-dir /tmp -client=0.0.0.0
+
+!WANT TO RECLAIM DOCKER SPACE IF TOO MANY IMAGES
+    
+     sudo docker system prune -af
+     
   
   
