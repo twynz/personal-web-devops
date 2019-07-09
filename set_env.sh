@@ -1,11 +1,11 @@
 #!/bin/bash
 function export_front_end_IP() {
     #first clean previous values
-    sed -i -E 's/REACT_APP_AUTH_SERVICE=(.*)/REACT_APP_AUTH_SERVICE=/g' ./execute.sh
-    sed -i -E 's/REACT_APP_CONTENT_SERVICE=(.*)/REACT_APP_CONTENT_SERVICE=/g' ./execute.sh
+    sed -i -E 's/REACT_APP_AUTH_SERVICE=(.*)/REACT_APP_AUTH_SERVICE=/g' ./Dockerfile
+    sed -i -E 's/REACT_APP_CONTENT_SERVICE=(.*)/REACT_APP_CONTENT_SERVICE=/g' ./Dockerfile
     #set ip
-    sed -i -E 's/REACT_APP_AUTH_SERVICE=/REACT_APP_AUTH_SERVICE='$PUBLIC_IP'/g' ./execute.sh
-    sed -i -E 's/REACT_APP_CONTENT_SERVICE=/REACT_APP_CONTENT_SERVICE='$PUBLIC_IP'/g' ./execute.sh
+    sed -i -E 's/REACT_APP_AUTH_SERVICE=/REACT_APP_AUTH_SERVICE='$PUBLIC_IP'/g' ./Dockerfile
+    sed -i -E 's/REACT_APP_CONTENT_SERVICE=/REACT_APP_CONTENT_SERVICE='$PUBLIC_IP'/g' ./Dockerfile
 }
 
 function replace_IP() {

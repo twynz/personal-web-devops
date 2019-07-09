@@ -9,6 +9,8 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh
 ADD . /src
 RUN sh /src/get_project.sh
 WORKDIR /src/my-react-web
+ENV REACT_APP_AUTH_SERVICE=hostIP
+ENV REACT_APP_CONTENT_SERVICE=hostIP
 EXPOSE 3000
 RUN ["chmod", "+x", "/src/execute.sh"]
 ENTRYPOINT ["/src/execute.sh"]
