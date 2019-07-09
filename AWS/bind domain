@@ -1,0 +1,5 @@
+#go to route53 management page, go to dns management
+#if already successfully register domain name, there is a host zone there
+#click  create record set, fillout the form with ec2 public ip address.
+#don't forget to alias www.#your domain name to the previous config with ip.
+

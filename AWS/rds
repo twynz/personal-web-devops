@@ -1,0 +1,14 @@
+#deploy an rds, for security reasons, I don't set it has a public ip and
+#the security group associate with this instance only support my ec2 instance
+#private ip visit.
+
+     type      MYSQL/Aurora
+     protocal  TCP
+     port      3306
+     source    172.31.12.196/32 //only prove my ec2 visit
+
+#Need to pay attention, when restart this ec2 instance, private ip may change
+#and I need to update the security group setting for this rds instance.
+#The connect command is:
+
+     sudo mysql -h personalwebdb.cj6qmmczghu6.ap-southeast-2.rds.amazonaws.com -u*** -p****
