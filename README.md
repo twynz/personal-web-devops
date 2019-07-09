@@ -1,3 +1,5 @@
+!!!Remember param sequence, docker run <container:name> -p <port>:<port> will not expose port to 0.0.0.0!!!
+    
 Used for spring cloud backend of my personal web.
 
 Can start all services and dependencies using docker compose:
