@@ -7,4 +7,4 @@ RUN sh /src/get_project.sh
 WORKDIR /src/personal-web-auth
 #RUN mvn clean install
 EXPOSE 10001:10001
-CMD /bin/bash
+ENTRYPOINT mvn spring-boot:run
