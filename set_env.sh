@@ -1,5 +1,12 @@
 #!/bin/bash
-
+function export_front_end_IP() {
+    #first clean previous values
+    sed -i -E 's/REACT_APP_AUTH_SERVICE=(.*)/REACT_APP_AUTH_SERVICE=/g' ./execute.sh
+    sed -i -E 's/REACT_APP_CONTENT_SERVICE=(.*)/REACT_APP_CONTENT_SERVICE=/g' ./execute.sh
+    #set ip
+    sed -i -E 's/REACT_APP_AUTH_SERVICE=/REACT_APP_AUTH_SERVICE='$PUBLIC_IP'/g' ./execute.sh
+    sed -i -E 's/REACT_APP_CONTENT_SERVICE=/REACT_APP_CONTENT_SERVICE='$PUBLIC_IP'/g' ./execute.sh
+}
 
 function replace_IP() {
     #first clean previous value
@@ -25,9 +32,11 @@ echo "please input password of db:\n"
 read DB_PASSWORD
 #get public ip
 PUBLIC_IP="$(wget -qO- https://ipecho.net/plain ; echo)"
-
+#export frontend var
+cd frontend
+export_front_end_IP
 #replace auth
-cd myauth
+cd ../myauth
 replace_IP
 replace_DB
 #replace frontend

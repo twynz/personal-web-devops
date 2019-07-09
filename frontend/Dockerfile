@@ -10,6 +10,6 @@ ADD . /src
 RUN sh /src/get_project.sh
 WORKDIR /src/my-react-web
 EXPOSE 3000
-RUN ["chmod", "+x", "/src/excute.sh"]
-ENTRYPOINT ["/src/excute.sh"]
+RUN ["chmod", "+x", "/src/execute.sh"]
+ENTRYPOINT ["/src/execute.sh"]
 
