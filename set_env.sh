@@ -1,8 +1,5 @@
 #!/bin/bash
-function export_front_end_IP() {
-   export REACT_APP_AUTH_SERVICE=$PUBLIC_IP
-   export REACT_APP_CONTENT_SERVICE=$PUBLIC_IP
-}
+
 
 function replace_IP() {
     #first clean previous value
@@ -28,8 +25,7 @@ echo "please input password of db:\n"
 read DB_PASSWORD
 #get public ip
 PUBLIC_IP="$(wget -qO- https://ipecho.net/plain ; echo)"
-#export frontend var
-export_front_end_IP
+
 #replace auth
 cd myauth
 replace_IP
