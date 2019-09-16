@@ -43,6 +43,23 @@ When using cloud architecture integrate with consul, starting consul using comma
 !WANT TO RECLAIM DOCKER SPACE IF TOO MANY IMAGES
     
      sudo docker system prune -af
-     
+
+!For future, integrate docker file start image into docker compose, sample:
+
+# docker-compose.yml
+version: '2'
+
+services:
+  web:
+    build: .
+    # build from Dockerfile
+    context: ./Path
+    dockerfile: Dockerfile
+    ports:
+     - "5000:5000"
+    volumes:
+     - .:/code
+  redis:
+    image: redis
   
   
