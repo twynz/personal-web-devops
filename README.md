@@ -49,17 +49,17 @@ When using cloud architecture integrate with consul, starting consul using comma
 # docker-compose.yml
 version: '2'
 
-services:
-  web:
-    build: .
-    # build from Dockerfile
-    context: ./Path
-    dockerfile: Dockerfile
-    ports:
-     - "5000:5000"
-    volumes:
-     - .:/code
-  redis:
-    image: redis
+    services:
+      web:
+        build: .
+        # build from Dockerfile
+        context: ./Path
+        dockerfile: Dockerfile
+        ports:
+         - "5000:5000"
+        volumes:
+         - .:/code
+      redis:
+        image: redis
   
   
