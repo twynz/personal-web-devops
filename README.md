@@ -66,3 +66,7 @@ version: '2'
  For port forwarding:
  
      sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 3000
+     
+ Reset Mysql root password
+     
+     update user set authentication_string='{password}' where user='root';
