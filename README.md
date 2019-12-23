@@ -70,3 +70,20 @@ version: '2'
  Reset Mysql root password
      
      update user set authentication_string='{password}' where user='root';
+     
+ Check aviable DNS:
+     
+     nmcli dev show | grep 'IP4.DNS'
+     
+     Add them to a new configuration file called daemon.json:
+
+$ sudo pico /etc/docker/daemon.json
+
+And insert the following:
+
+{
+    "dns": ["10.91.3.31", "10.90.3.31", "10.90.7.14"]
+}
+Then restart the service:
+
+$ sudo service docker restart
